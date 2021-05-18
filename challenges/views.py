@@ -15,14 +15,9 @@ def index(request):
     list_items = ""
     months = list(month_list.keys())
 
-    for month in months:
-        redirect_path = reverse('month_challenge', args=[month])
-        list_items+= f"<li><a href = \"{redirect_path}\">{month}</a></li>"
-    # print(list_items)
-
-    response_data = f"<ul>{list_items}</ul>"
-
-    return HttpResponse(response_data)
+    return render(request, "challenges/index.html", {
+        "months":months
+    })
 
 
 def monthly_challange(request,month):
