@@ -9,11 +9,27 @@ month_list = {
     "february":"Walk for at least 20 minutes every day",
 }
 
+
+def index(request):
+    list_items = ""
+    months = list(month_list.keys())
+
+    for month in months:
+        redirect_path = reverse('month_challenge', args=[month])
+        list_items+= f"<li><a href = \"{redirect_path}\">{month}</a></li>"
+    # print(list_items)
+
+    response_data = f"<ul>{list_items}</ul>"
+
+    return HttpResponse(response_data)
+
+
 def monthly_challange(request,month):
 
     try:
         challenge_text = month_list[month]
-        return HttpResponse(challenge_text)
+        challage_data = f"<h1>{challenge_text}</h1>"
+        return HttpResponse(challage_data)
     except:
         return HttpResponseNotFound("this month is not supported")
 
