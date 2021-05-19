@@ -8,6 +8,7 @@ from django.urls import reverse
 month_list = {
     "january":"Eat no meat for the entire month",
     "february":"Walk for at least 20 minutes every day",
+    "march":None
 }
 
 
