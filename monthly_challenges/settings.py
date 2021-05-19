@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates',
+            BASE_DIR / 'templates', # позволяет framework у увидеть tamplate по данному пути
             # BASE_DIR / 'challenges/templates'
                  ]
         ,
